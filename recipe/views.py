@@ -7,7 +7,7 @@ def main(request):
     """
     # Використовуємо order_by('?') для рандомного сортування
     recipes = Recipe.objects.order_by('?')[:10]
-    return render(request, 'recipe/templates/main.html', {
+    return render(request, 'recipe/main.html', {
         'recipes': recipes,
     })
 
@@ -18,7 +18,7 @@ def category_detail(request, id):
     """
     category = get_object_or_404(Category, id=id)
     recipes = Recipe.objects.filter(category=category)
-    return render(request, 'recipe/templates/category_detail.html', {
+    return render(request, 'recipe/category_detail.html', {
         'category': category,
         'recipes': recipes,
     })
