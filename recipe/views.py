@@ -10,3 +10,15 @@ def main(request):
     return render(request, 'recipe/templates/main.html', {
         'recipes': recipes,
     })
+
+def category_detail(request, id):
+    """
+    Показує всі рецепти певної категорії за її id.
+    Шаблон: category_detail.html
+    """
+    category = get_object_or_404(Category, id=id)
+    recipes = Recipe.objects.filter(category=category)
+    return render(request, 'recipe/templates/category_detail.html', {
+        'category': category,
+        'recipes': recipes,
+    })
