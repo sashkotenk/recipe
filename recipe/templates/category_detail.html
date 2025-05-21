@@ -1,13 +1,11 @@
-{% extends 'base.html' %}
-
-
+{% extends "base.html" %}
 {% block content %}
-  <h1>Category List</h1>
+  <h1>Рецепти категорії: {{ category.name }}</h1>
   <ul>
-    {% for recipe in category %}
-      <li>{{ recipe.title }}</li>
+    {% for r in recipes %}
+      <li>{{ r.title }}</li>
     {% empty %}
-      <li>No recipes found.</li>
+      <li>Немає рецептів у цій категорії.</li>
     {% endfor %}
   </ul>
 {% endblock %}
